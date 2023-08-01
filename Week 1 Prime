@@ -1,0 +1,44 @@
+#include <cs50.h>
+#include <stdio.h>
+
+bool prime(int number);
+
+int main(void)
+{
+    int min;
+    do
+    {
+        min = get_int("Minimum: ");
+    }
+    while (min < 1);
+
+    int max;
+    do
+    {
+        max = get_int("Maximum: ");
+    }
+    while (min >= max);
+
+    for (int i = min; i <= max; i++)
+    {
+        if (prime(i))
+        {
+            printf("%i\n", i);
+        }
+    }
+}
+
+bool prime(int number)
+{
+    // TODO
+    // We start our loop with 2 because every single integer number can be divided 1 withoy remaing part
+    for (int j = 2; j < number ; j++)
+    {
+        // We check if the remainig part equals 0 doing division
+        if (number % j == 0)
+        return false;
+        // If any number between min and max gives remainder 0, it means this is not prime number
+    }
+    //If all the divisions gives us reminder, we can say this is prime number and print it later in line 26
+    return true;
+}
